@@ -37,15 +37,12 @@ def get_shop_list_by_dishes(dishes, person_count=int):
     try:
         for dish in dishes:
             for item in (book[dish]):
-                # print(item['ingredient_name'])
-                # print(item['measure'])
-                # print(item['quantity'])
+               
                 items_list = dict([(item['ingredient_name'], {'measure': item['measure'], 'quantity': int(item['quantity'])*person_count})])
                 if shopping_list.get(item['ingredient_name']):
-                    # print(f' Такое {items_list} уже есть в списке. Добавил еще')
+
                     extra_item = (int(shopping_list[item['ingredient_name']]['quantity']) +
                                   int(items_list[item['ingredient_name']]['quantity']))
-                    # print(extra_item)
                     shopping_list[item['ingredient_name']]['quantity'] = extra_item
 
                 else:
